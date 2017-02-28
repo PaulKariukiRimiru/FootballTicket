@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#039BE5</color>
+    <color name="colorPrimaryDark">#039BE5</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="navigationColor">#039BE5</color>
+    <color name="TextColor">#FFFFFF</color>
+    <color name="statusBar">#039BE5</color>
+
+    <color name="color_green">#039BE5</color>
+    <color name="color_brown">#C51162</color>
+    <color name="color_orange">#FF4081</color>
+    <color name="color_blue">#1479b7</color>
+    <color name="divider_grey">#FF4081</color>
+
+    <array name="rect_color">
+        <item>@color/color_blue</item>
+        <item>@color/color_brown</item>
+        <item>@color/color_green</item>
+        <item>@color/divider_grey</item>
+        <item>@color/color_orange</item>
+    </array>
+</resources>
