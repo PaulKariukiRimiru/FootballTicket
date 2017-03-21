@@ -6,11 +6,13 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.andexert.library.RippleView;
 import com.example.mike.footballticket.MainActivity;
 import com.example.mike.footballticket.Interfaces.DataTransferInterface;
 import com.example.mike.footballticket.Pojo.IMainObject;
@@ -83,8 +85,23 @@ public class MatchesDelegate extends AdapterDelegate<List<IMainObject>> {
         matchesDelegateViewHolder.addToCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.d("SELECTED ITEM AT: ", String.valueOf(position));
                 if (mainMatchObjects.contains(matchObject)){
                     Snackbar.make(view, "Match already in the cart", Snackbar.LENGTH_SHORT)
+                            .setAction("Action", null).show();
+                }else {
+                    transferInterface.setValues(matchObject);
+                    mainMatchObjects.add(matchObject);
+                }
+            }
+        });
+
+        matchesDelegateViewHolder.rippleView.setOnRippleCompleteListener(new RippleView.OnRippleCompleteListener() {
+            @Override
+            public void onComplete(RippleView rippleView) {
+                Log.d("SELECTED ITEM AT: ", String.valueOf(position));
+                if (mainMatchObjects.contains(matchObject)){
+                    Snackbar.make(rippleView, "Match already in the cart", Snackbar.LENGTH_SHORT)
                             .setAction("Action", null).show();
                 }else {
                     transferInterface.setValues(matchObject);
@@ -98,6 +115,7 @@ public class MatchesDelegate extends AdapterDelegate<List<IMainObject>> {
     ImageView homeLogo, awayLogo;
         AppCompatTextView homeName, awayName, matchTime;
         AppCompatButton addToCart;
+        RippleView rippleView;
         public MatchesDelegateViewHolder(View itemView) {
             super(itemView);
             homeLogo = (ImageView) itemView.findViewById(R.id.imghome);
@@ -108,7 +126,7 @@ public class MatchesDelegate extends AdapterDelegate<List<IMainObject>> {
             matchTime = (AppCompatTextView) itemView.findViewById(R.id.tvMatchtime);
 
             addToCart = (AppCompatButton) itemView.findViewById(R.id.btnAddtocart);
-
+            rippleView = (RippleView) itemView.findViewById(R.id.ripMainMatchItem);
         }
     }
 }

@@ -91,7 +91,7 @@
                 android:value="com.example.mike.footballticket.MainActivity" />
         </activity>
         <activity
-            android:name=".Fragments.QRgeneratorFragment"
+            android:name=".Activities.QRgeneratorFragment"
             android:label="@string/title_activity_aboutus"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">

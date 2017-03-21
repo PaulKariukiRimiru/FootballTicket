@@ -24,7 +24,7 @@ import com.example.mike.footballticket.Activities.QRscanner;
 import com.example.mike.footballticket.Activities.SettingsActivity;
 import com.example.mike.footballticket.Activities.WhatshotActivity;
 import com.example.mike.footballticket.Adapters.MainAdapter;
-import com.example.mike.footballticket.Fragments.QRgeneratorFragment;
+import com.example.mike.footballticket.Activities.QRgeneratorFragment;
 import com.example.mike.footballticket.Pojo.CartList;
 import com.example.mike.footballticket.Pojo.CartObject;
 import com.example.mike.footballticket.Interfaces.DataTransferInterface;
@@ -163,8 +163,7 @@ public class MainActivity extends AppCompatActivity
             intent = new Intent(this, SettingsActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_share) {
-            intent = new Intent(this, QRgeneratorFragment.class);
-            startActivity(intent);
+
         } else if (id == R.id.nav_favorites) {
             intent = new Intent(this, FavoritesActivity.class);
             startActivity(intent);

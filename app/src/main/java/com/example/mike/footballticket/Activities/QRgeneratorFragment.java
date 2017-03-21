@@ -1,4 +1,4 @@
-package com.example.mike.footballticket.Fragments;
+package com.example.mike.footballticket.Activities;
 
 
 import android.graphics.Bitmap;
@@ -29,6 +29,8 @@ public class QRgeneratorFragment extends AppCompatActivity {
         ImageView imageView = (ImageView) findViewById(R.id.imgTicketqr);
         Bitmap bitmap;
 
+        String matchString = getIntent().getStringExtra("matchInfo");
+
         WindowManager manager = (WindowManager) getSystemService(WINDOW_SERVICE);
         Display display = manager.getDefaultDisplay();
         Point point = new Point();
@@ -37,7 +39,7 @@ public class QRgeneratorFragment extends AppCompatActivity {
         int height = point.y;
         int smallerDimension = width < height ? width : height;
         smallerDimension = smallerDimension * 3 / 4;
-        String inputValue = "hello football ticket";
+        String inputValue = matchString;
 
         QRGEncoder qrgEncoder = new QRGEncoder(inputValue, null, QRGContents.Type.TEXT, smallerDimension);
         try {

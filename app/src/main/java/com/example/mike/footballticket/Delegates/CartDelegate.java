@@ -6,6 +6,7 @@ import android.support.annotation.StringDef;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -91,7 +92,8 @@ public class CartDelegate extends AdapterDelegate<List<IMainObject>> {
             @Override
             public void onClick(View view) {
                 if (cartObject.getNumberOfTickets() == 1) {
-                    removalInterface.removeObject(cartObject, position);
+                    Log.d("REMOVE ITEM", String.valueOf(cartDelegateViewHolder.getAdapterPosition()));
+                    removalInterface.removeObject(cartObject, cartDelegateViewHolder.getAdapterPosition());
                 }else {
                     cartObject.setNumberOfTickets(cartObject.getNumberOfTickets()-1);
                     cartDelegateViewHolder.noOfTickets.setText(String.valueOf(cartObject.getNumberOfTickets()));
